@@ -13,8 +13,8 @@ data "aws_security_group" "mygroup" {
 }
 
 
-resource "aws_instance" "windows" {
-  ami =  "ami-02ec6f788a1f1a739"
+resource "aws_instance" "vmmachine" {
+  ami =  " ami-0fc20dd1da406780b"
   instance_type = "t2.micro"
   key_name = "ubuntu"
   security_groups = ["${data.aws_security_group.mygroup.name}"]
@@ -22,7 +22,7 @@ resource "aws_instance" "windows" {
   connection {
       type = "ssh"
       user = "ubuntu"
-      host     = "${aws_instance.windows.public_ip}"
+      host     = "${aws_instance.vmmachine.public_ip}"
       private_key = "${file("./ubuntu.pem")}"
   }
   provisioner "remote-exec" {

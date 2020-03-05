@@ -26,7 +26,7 @@ resource "aws_instance" "vmmachine" {
       private_key = "${file("./ubuntu.pem")}"
   }
   provisioner "remote-exec" {
-        inline = ["sudo apt-get update", "sudo apt-get install openjdk-8-jdk -y","sudo apt-get install chocolatey -y"]
+        inline = ["sudo apt-get update", "sudo apt-get install openjdk-8-jdk -y"]
     }
 
   

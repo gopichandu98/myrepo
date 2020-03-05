@@ -14,7 +14,7 @@ data "aws_security_group" "mygroup" {
 
 
 resource "aws_instance" "vmmachine" {
-  ami =  " ami-0fc20dd1da406780b"
+  ami =  "ami-0fc20dd1da406780b"
   instance_type = "t2.micro"
   key_name = "ubuntu"
   security_groups = ["${data.aws_security_group.mygroup.name}"]
